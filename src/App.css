@@ -1,0 +1,77 @@
+/* Fondo general y texto */
+body {
+  margin: 0;
+  background-color: #0f0f0f;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffe600;
+}
+
+/* NavBar */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* espacio entre logo y resto */
+  align-items: center;
+  background-color: #0f0f0f;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 0 10px #ffe600;
+  color: #ffe600;
+}
+
+.navbar-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Contenedor de links */
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-grow: 1; /* para que ocupe el espacio central */
+  justify-content: center; /* links centrados */
+}
+
+/* Cada link */
+.navbar-links li a {
+  color: #ffe600;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  color: #00fff7;
+}
+
+/* Contenedor del carrito a la derecha */
+.cart-widget {
+  position: relative;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #00fff7;
+  flex-shrink: 0; /* no dejar que se achique */
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: #00fff7;
+  color: #000;
+  border-radius: 50%;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* ItemListContainer */
+.item-list-container {
+  padding: 3rem;
+  text-align: center;
+  color: #ffe600;
+  background-color: #0f0f0f;
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px #00fff7;
+}
