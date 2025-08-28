@@ -1,10 +1,10 @@
-const CartWidget = () => {
+function CartWidget() {
   return (
-    <div className="cart-widget">
+    <button className="cart-widget" aria-label="Carrito">
       🗡️
-      <span className="cart-badge">3</span>
-    </div>
+      <span className="cart-count">3</span>
+    </button>
   );
-};
+}
 
 export default CartWidget;

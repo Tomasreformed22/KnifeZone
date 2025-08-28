@@ -1,16 +1,14 @@
+import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
-import logo from '../assets/logo.png';
-
 
 const NavBar = () => {
   return (
     <nav className="navbar">
-      <img src={logo} alt="Knife Zone Logo" style={{ height: '100px', width: 'auto' }} />
+      <Link to="/" className="navbar-logo">CS:Knives</Link>
       <ul className="navbar-links">
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Mariposa</a></li>
-        <li><a href="#">Karambit</a></li>
-        <li><a href="#">Bayoneta</a></li>
+        <li><Link to="/category/karambit">Karambit</Link></li>
+        <li><Link to="/category/bayoneta">Bayoneta</Link></li>
+        <li><Link to="/category/m9">M9</Link></li>
       </ul>
       <CartWidget />
     </nav>

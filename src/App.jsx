@@ -1,16 +1,20 @@
-import NavBar from "./components/NavBar.jsx";
-import ItemListContainer from "./components/ItemListContainer.jsx";
-import './App.css';
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import ItemListContainer from "./components/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer";
+import "./App.css";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <NavBar />
-      <ItemListContainer greeting="¡Bienvenido a KnifeZone, el mejor lugar para cuchillos CS 2!" />
-    </>
+      <Routes>
+        <Route path="/" element={<ItemListContainer greeting="Bienvenido a KnifeZone ⚡" />} />
+        <Route path="/category/:categoryId" element={<ItemListContainer />} />
+        <Route path="/item/:id" element={<ItemDetailContainer />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
-
