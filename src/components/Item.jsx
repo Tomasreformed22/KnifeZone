@@ -1,12 +1,15 @@
+import React from "react";
 import { Link } from "react-router-dom";
+import "../App.css";
 
-function Item({ id, name, price }) {
+function Item({ id, name, price, image }) {
   return (
     <div className="item-card">
-      <h3>{name}</h3>
-      <p>Precio: ${price}</p>
+      <img src={image} alt={name} className="item-img" />
+      <h3 className="item-title">{name}</h3>
+      <p className="item-price">${price}</p>
       <Link to={`/item/${id}`} className="btn">
-        Ver Detalle
+        Ver detalle
       </Link>
     </div>
   );

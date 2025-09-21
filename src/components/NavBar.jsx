@@ -1,18 +1,49 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import CartWidget from "./CartWidget";
+import { useCart } from "../context/CartContext";
+import "../App.css";
 
-const NavBar = () => {
+function NavBar() {
+  const { getTotalItems } = useCart();
+
   return (
     <nav className="navbar">
-      <Link to="/" className="navbar-logo">CS:Knives</Link>
-      <ul className="navbar-links">
-        <li><Link to="/category/karambit">Karambit</Link></li>
-        <li><Link to="/category/bayoneta">Bayoneta</Link></li>
-        <li><Link to="/category/m9">M9</Link></li>
+      <Link to="/" className="logo">
+        KnifeZone ⚡
+      </Link>
+
+      <ul className="nav-links">
+        <li>
+          <NavLink
+            to="/category/karambit"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Karambit
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/category/bayonet"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Bayoneta
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/category/m9"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            M9
+          </NavLink>
+        </li>
       </ul>
-      <CartWidget />
+
+      <Link to="/cart">
+        <CartWidget count={getTotalItems()} />
+      </Link>
     </nav>
   );
-};
+}
 
 export default NavBar;

@@ -1,9 +1,22 @@
-/* Navbar */
+/* ========================
+   General / Body
+======================== */
+body {
+  background-color: #000;
+  color: #0ff; /* texto por defecto cian */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========================
+   Navbar
+======================== */
 .navbar {
   display: flex;
-  justify-content: space-between; /* logo izquierda, links centro, carrito derecha */
+  justify-content: space-between;
   align-items: center;
-  background-color: #000; /* negro */
+  background-color: #000;
   padding: 1rem 2rem;
   box-shadow: 0 0 10px #ffeb3b;
 }
@@ -11,35 +24,28 @@
 .navbar .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #ffeb3b; /* amarillo neón */
-  text-decoration: none;
-  text-shadow: 0 0 8px #ffeb3b;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
   color: #ffeb3b;
   text-decoration: none;
+  text-shadow: 0 0 8px #ffeb3b;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 1.5rem; /* espacio entre links */
+  gap: 1.5rem;
 }
 
 .nav-links a {
-  color: #0ff; /* cian neón */
+  color: #0ff;
   text-decoration: none;
   font-weight: 600;
   text-shadow: 0 0 5px #0ff;
 }
 
 .nav-links a.active {
-  color: #ffeb3b; /* amarillo cuando está activo */
+  color: #ffeb3b;
   text-shadow: 0 0 10px #ffeb3b;
-  }
+}
 
 .nav-links a:hover {
   color: #ffeb3b;
@@ -51,13 +57,17 @@
   cursor: pointer;
 }
 
-/* Contenedor */
+/* ========================
+   Contenedor general
+======================== */
 .container {
   padding: 20px;
   text-align: center;
 }
 
-/* Listado de Items */
+/* ========================
+   Item List (Cards)
+======================== */
 .item-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -65,17 +75,35 @@
   margin-top: 20px;
 }
 
-/* Card Producto */
 .item-card {
   background: #111;
   border: 2px solid #ffeb3b;
   padding: 15px;
   border-radius: 10px;
+  text-align: center;
   transition: 0.3s;
 }
 
 .item-card:hover {
   box-shadow: 0 0 15px #0ff;
+}
+
+.item-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.item-card h3 {
+  color: #ffeb3b;
+  text-shadow: 0 0 8px #ffeb3b;
+  margin-bottom: 5px;
+}
+
+.item-card p {
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff;
+  margin-bottom: 10px;
 }
 
 .btn {
@@ -88,6 +116,7 @@
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
+  cursor: pointer;
   transition: 0.3s;
 }
 
@@ -96,7 +125,9 @@
   color: #000;
 }
 
-/* Detalle */
+/* ========================
+   Item Detail
+======================== */
 .item-detail {
   background: #111;
   padding: 20px;
@@ -104,15 +135,62 @@
   border: 2px solid #0ff;
   max-width: 400px;
   margin: auto;
+  text-align: center;
 }
 
-/* CartWidget */
+.item-detail img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.item-detail h2 {
+  color: #ffeb3b;
+  text-shadow: 0 0 8px #ffeb3b;
+  margin-bottom: 10px;
+}
+
+.item-detail p {
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff;
+  margin-bottom: 5px;
+}
+
+/* ========================
+   ItemCount
+======================== */
+.item-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.item-count button {
+  padding: 6px 12px;
+  background-color: #0ff;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.item-count button:hover {
+  background-color: #ffeb3b;
+}
+
+/* ========================
+   Cart Widget
+======================== */
 .cart-widget {
   position: relative;
   font-size: 1.5rem;
   background: transparent;
   border: 0;
-  color: #0ff;           /* cian neón */
+  color: #0ff;
   cursor: pointer;
 }
 
@@ -120,11 +198,39 @@
   position: absolute;
   top: -8px;
   right: -12px;
-  background: #ffeb3b;   /* amarillo neón */
+  background: #ffeb3b;
   color: #000;
   border-radius: 999px;
   padding: 2px 6px;
   font-size: 0.75rem;
   font-weight: 700;
   box-shadow: 0 0 8px #ffeb3b;
+}
+
+/* ========================
+   Checkout y Cart
+======================== */
+.cart-item {
+  background: #111;
+  border: 2px solid #0ff;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-item p {
+  margin: 0;
+  color: #0ff;
+}
+
+.cart-item button {
+  background: #ffeb3b;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
 }

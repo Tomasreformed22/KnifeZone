@@ -1,8 +1,14 @@
+import "../App.css";
+import { useCart } from "../context/CartContext";
+
 function CartWidget() {
+  const { getTotalItems } = useCart();
+  const count = getTotalItems();
+
   return (
     <button className="cart-widget" aria-label="Carrito">
-      🗡️
-      <span className="cart-count">3</span>
+      🛒
+      {count > 0 && <span className="cart-count">{count}</span>}
     </button>
   );
 }
