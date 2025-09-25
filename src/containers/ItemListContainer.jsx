@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../components/ItemList";
-import { db } from "../services/firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { getProducts } from "../services/products";
 
 function ItemListContainer({ greeting }) {
   const [items, setItems] = useState([]);
@@ -10,15 +9,14 @@ function ItemListContainer({ greeting }) {
   const { categoryId } = useParams();
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      setLoading(true);
-      const productsCollection = collection(db, "products");
-      const productsSnapshot = await getDocs(productsCollection);
-      const productsList = productsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      setItems(categoryId ? productsList.filter(p => p.category === categoryId) : productsList);
+    setLoading(true);
+    getProducts().then((productsList) => {
+      const filtered = categoryId
+        ? productsList.filter((p) => p.category === categoryId)
+        : productsList;
+      setItems(filtered);
       setLoading(false);
-    };
-    fetchProducts();
+    });
   }, [categoryId]);
 
   if (loading) return <p>Cargando productos...</p>;
