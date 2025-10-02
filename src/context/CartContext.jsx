@@ -21,6 +21,11 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  // Eliminar un producto del carrito por id
+  const removeItem = (id) => {
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  };
+
   // Vaciar carrito
   const clearCart = () => setCartItems([]);
 
@@ -34,7 +39,14 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cartItems, addItem, clearCart, getTotalItems, getTotalPrice }}
+      value={{
+        cartItems,
+        addItem,
+        removeItem,   
+        clearCart,
+        getTotalItems,
+        getTotalPrice,
+      }}
     >
       {children}
     </CartContext.Provider>
